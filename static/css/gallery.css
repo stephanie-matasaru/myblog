@@ -1,0 +1,127 @@
+body {
+    background: linear-gradient(to right, #E6CCE6, #C5E7BD);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-family: 'Pacifico', cursive;
+    color: #333;
+    text-align: left;
+    animation: fadeIn 1s ease-in-out;
+}
+
+header {
+    background-color: #9fd8b2;
+    text-align: center;
+    padding: 20px;
+    animation: bounceIn 1s ease-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+.slider {
+    position: relative;
+    max-width: 500px;
+    margin: auto;
+    overflow: hidden;
+    animation: zoomIn 1s ease-in-out;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    background: white;
+    padding: 10px;
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    animation: slideLeft 1s ease-in-out;
+}
+
+.slides img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    display: none;
+    border: 5px solid white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    animation: fadeZoomIn 1s ease-in-out;
+}
+
+.slides img:first-child {
+    display: block;
+}
+
+.slider button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px 15px;
+    font-size: 18px;
+    animation: popIn 0.5s ease-in-out;
+    border-radius: 50%;
+    transition: background 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: left;
+    padding: 15px;
+    background-color: #9fd8b2;
+}
+
+@keyframes slideIn {
+    from { transform: translateX(-100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes bounceIn {
+    0% { transform: scale(0.5); opacity: 0; }
+    50% { transform: scale(1.05); opacity: 1; }
+    100% { transform: scale(1); }
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-100%); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes slideLeft {
+    from { transform: translateX(50px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes popIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes fadeZoomIn {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}

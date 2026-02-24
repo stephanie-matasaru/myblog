@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/review.css' %}">
+    <title>Delete Review</title>
+</head>
+<body>
+    <div class="review-container">
+        <h1>Delete Review</h1>
+        <p>Are you sure you want to delete the review by {{ review.email }}?</p>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit">Delete</button>
+        </form>
+        <a href="{% url 'home' %}">Cancel</a>
+    </div>
+</body>
+</html>

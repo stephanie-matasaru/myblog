@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>Form Page</title>
+  <link rel="stylesheet" href="{% static 'css/form.css' %}">
+  <link rel="stylesheet" href="{% static 'css/menu.css' %}">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <h1>Form Page</h1>
+  </header>
+
+  <div class="dropdown">
+    <button id="menu-toggle" class="dropbtn">Menu</button>
+    <div id="dropdown-content" class="dropdown-content">
+      <a href="{% url 'home' %}">Home</a>
+      <a href="{% url 'about' %}">About</a>
+      <a href="{% url 'form' %}" class="active">Form</a>
+      <a href="{% url 'gallery' %}">Gallery</a>
+      <a href="{% url 'chatbot' %}">Chatbot</a>
+    </div>
+  </div>
+
+  <form action="/submit" method="post" onsubmit="return validateForm()">
+    {% csrf_token %}
+    <p>
+      <label>Salutation
+        <select name="salutation">
+          <option>--None--</option>
+          <option>Mr.</option>
+          <option>Ms.</option>
+          <option>Mrs.</option>
+          <option>Dr.</option>
+          <option>Prof.</option>
+        </select>
+      </label>
+    </p>
+    <p><label>First name: <input name="firstName" /></label></p>
+    <p><label>Last name: <input name="lastName" /></label></p>
+    <p>Gender:
+      <label><input type="radio" name="gender" value="male" />Male</label>
+      <label><input type="radio" name="gender" value="female" />Female</label>
+    </p>
+    <p><label>Email: <input type="email" name="email" /></label></p>
+    <p><label>Date of Birth: <input type="date" name="birthDate" /></label></p>
+    <p><label>Address: <textarea name="address" cols="30" rows="3"></textarea></label></p>
+    <p><label>Upload a file: <input type="file" name="uploadFile" /></label></p>
+    <p><button type="submit">Submit</button></p>
+  </form>
+
+  <footer>
+    <p>&copy; 2025 Stephanie - Blog</p>
+  </footer>
+
+  <script src="{% static 'js/form.js' %}"></script>
+  <script src="{% static 'js/menu.js' %}"></script>
+</body>
+</html>

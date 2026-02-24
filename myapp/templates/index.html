@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stephanie - Blog</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/menu.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index_BackToTop.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index_SearchPosts.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index_review.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <h1 class="title">Welcome to Stephanie's Blog</h1>
+    </header>
+
+    <div id="overlay"></div>
+
+    <div class="dropdown">
+        <button id="menu-toggle" class="dropbtn">Menu</button>
+        <div id="dropdown-content" class="dropdown-content">
+            <a href="{% url 'home' %}" class="active" id="home-link">Home</a>
+            <a href="{% url 'about' %}">About</a>
+            <a href="{% url 'form' %}">Form</a>
+            <a href="{% url 'gallery' %}">Gallery</a>
+            <a href="{% url 'chatbot' %}">Chatbot</a>
+        </div>
+    </div>
+
+    <main>
+        <button onclick="scrollToTop()" id="scrollToTopBtn" title="Go to top">Back to Top</button>
+
+        <div id="searchContainer">
+            <input type="text" id="searchInput" placeholder="Search..." onkeyup="searchPosts()">
+            <button id="searchButton" onclick="searchPosts()">Search</button>
+        </div>
+
+        {% block content %}
+            <!-- Dynamic blog posts from the database -->
+            {% for post in posts %}
+                <div class="blog-post">
+                <h1><a href="{% url 'post_detail' post.id %}">{{ post.title }}</a></h1>
+                <img src="{{ post.image.url }}" alt="{{ post.title }}">
+                <p>{{ post.paragraph|truncatechars:150 }}</p>
+                <a href="{% url 'post_detail' post.id %}">Read more...</a>
+                </div>
+            {% endfor %}
+        {% endblock %}
+    </main>
+    <section>
+        <h2>Reviews</h2>
+        <ul>
+        {% for review in reviews %}
+        <li>
+        <p><strong>{{ review.email }}</strong> ({{ review.date }})</p>
+        <p>Rating: {{ review.rating }}</p>
+        <p>{{ review.comment }}</p>
+        <a href="{% url 'update_review' review.id %}">Update</a>
+        <a href="{% url 'delete_review' review.id %}">Delete</a>
+        </li>
+        {% endfor %}
+        </ul>
+        <a href="{% url 'submit_review' %}">Leave a Review</a>
+    </section>
+
+
+    <footer>
+        <p>&copy; 2025 Stephanie - Blog</p>
+    </footer>
+
+    <script src="{% static 'js/menu.js' %}"></script>
+    <script src="{% static 'js/index_BackToTop.js' %}"></script>
+    <script src="{% static 'js/index_SearchPosts.js' %}"></script>
+</body>
+</html>

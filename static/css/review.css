@@ -1,0 +1,114 @@
+body {
+    font-family: 'Comic Sans MS', 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #e8f5e9, #f3e5f5); /* soft green to lilac */
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+.review-container {
+    max-width: 750px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 12px 30px rgba(155, 89, 182, 0.2);
+    border: 4px dashed #b2dfdb; /* light green-blue dash */
+}
+
+.review-container h1 {
+    text-align: center;
+    font-size: 2.5em;
+    color: #9b59b6; /* deep lilac */
+    margin-bottom: 30px;
+    text-shadow: 1px 1px #e1bee7;
+}
+
+.review-list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.review-item {
+    background: linear-gradient(to right, #f1f8e9, #ede7f6); /* green to lilac gradient */
+    padding: 20px;
+    border-radius: 15px;
+    border: 2px solid #c5e1a5; /* light green border */
+    box-shadow: 0 8px 16px rgba(155, 89, 182, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.review-item:hover {
+    transform: scale(1.02);
+}
+
+.review-item strong {
+    font-size: 1.3em;
+    color: #6a1b9a; /* rich lilac */
+}
+
+.review-content {
+    margin: 10px 0;
+    font-style: italic;
+    color: #33691e; /* deep green-brown */
+}
+
+.review-rating {
+    color: #81c784; /* green accent */
+    font-size: 1.2em;
+    margin-top: 8px;
+}
+
+.review-date {
+    font-size: 0.85em;
+    color: #888a;
+    margin-top: 5px;
+}
+
+.review-item .actions {
+    margin-top: 15px;
+}
+
+.review-item .actions a {
+    display: inline-block;
+    margin-right: 15px;
+    background-color: #aed581; /* soft green-yellow */
+    color: #33691e;
+    padding: 6px 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.review-item .actions a:hover {
+    background-color: #9ccc65;
+}
+
+button {
+    background-color: #ab47bc; /* lilac-purple */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1em;
+    box-shadow: 0 4px 12px rgba(171, 71, 188, 0.3);
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #8e24aa;
+}
+
+a {
+    color: #7b1fa2; /* dark lilac */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}

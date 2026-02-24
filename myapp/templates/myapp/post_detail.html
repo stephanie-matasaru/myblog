@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{ post.title }}</title>
+  <link rel="stylesheet" href="{% static 'css/post_detail.css' %}">
+</head>
+<body>
+
+  <header>
+    <h1 class="title">{{ post.title }}</h1>
+  </header>
+
+  <div class="blog-post">
+    <p class="date">Posted on {{ post.post_date }}</p>
+    <img src="{{ post.image.url }}" alt="{{ post.title }}">
+    <p>{{ post.paragraph }}</p>
+    <p>{{ post.more_details_for_the_dedicated_page }}</p>
+  </div>
+
+  <footer>
+    <a href="/">← Back to homepage</a>
+  </footer>
+
+</body>
+</html>

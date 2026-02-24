@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chatbot</title>
+  <link rel="stylesheet" href="{% static 'css/chatbot.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/menu.css' %}" />
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <header>
+    <h1 class="title">Chatbot</h1>
+  </header>
+
+  <div class="dropdown">
+    <button id="menu-toggle" class="dropbtn">Menu</button>
+    <div id="dropdown-content" class="dropdown-content">
+      <a href="{% url 'home' %}">Home</a>
+      <a href="{% url 'about' %}">About</a>
+      <a href="{% url 'form' %}">Form</a>
+      <a href="{% url 'gallery' %}">Gallery</a>
+      <a href="{% url 'chatbot' %}" class="active">Chatbot</a>
+    </div>
+  </div>
+
+  <div class="chat-container" id="chat-container"></div>
+
+  <form id="chat-form">
+    <input type="text" id="user-input" placeholder="Answer here..." autocomplete="off" />
+    <button type="submit">Send</button>
+  </form>
+
+  <footer>
+    <p>&copy; 2025 Stephanie - Blog</p>
+  </footer>
+
+  <script src="{% static 'js/menu.js' %}"></script>
+  <script src="{% static 'js/chatbot.js' %}"></script>
+</body>
+</html>
